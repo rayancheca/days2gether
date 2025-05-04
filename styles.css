@@ -1,0 +1,268 @@
+/* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fadde1, #d6eaf8);
+    color: #5D6D7E;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    /* Ensure cursor path is correct! */
+    cursor: url('images/cursor.png'), auto;
+}
+
+/* Container for main content */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 900px;
+    width: 90%;
+    z-index: 2;
+    position: relative;
+}
+
+/* Header Styling */
+.main-header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #6E4C4C;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Timer Section Styling */
+.timer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    position: relative; /* Keep for confetti */
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timer-box {
+    background-color: #FFF8E7;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 90px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timer-box:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timer-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #6E4C4C;
+    line-height: 1.1;
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #5D6D7E;
+    letter-spacing: 1px;
+}
+
+/* --- Interactive Garden & Elements --- */
+.interactive-garden {
+    background: linear-gradient(to bottom, #b8e0b0, #90c984); /* Soft green gradient for ground */
+    border-bottom-left-radius: 50% 20%; /* Curved bottom edge */
+    border-bottom-right-radius: 50% 20%;
+    padding: 20px 40px 30px 40px; /* Top, sides, bottom padding */
+    margin-top: 30px;
+    position: relative; /* Positioning context for plants and static elements */
+    width: 85%; /* Make garden wider */
+    max-width: 700px; /* Max width */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide parts of plants that might go below curve */
+
+    /* Flexbox to align animals */
+    display: flex;
+    justify-content: space-around; /* Distribute animals */
+    align-items: flex-end; /* Align animals to the bottom */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 20px; /* Space between animals */
+}
+
+/* Base Animal Style */
+.animal {
+    font-size: 2.5rem; /* Slightly smaller animals */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+    position: relative; /* Needed for z-index stacking */
+    z-index: 5; /* Animals appear above plants */
+    margin-bottom: -10px; /* Pull animals slightly down onto 'grass' */
+    will-change: transform; /* Hint for jumping animation */
+}
+
+.animal:hover {
+    transform: scale(1.1); /* Keep simple hover scale */
+}
+
+/* Specific animal styles */
+.bird {
+    font-size: 1.8rem; /* Make bird slightly smaller */
+    /* Removed absolute positioning */
+}
+/* .bunny {} */ /* No special styles needed */
+/* .cat {} */ /* No special styles needed */
+
+
+/* --- CSS Garden Decorations --- */
+.plant, .tree {
+    position: absolute;
+    bottom: 0; /* Position relative to garden bottom */
+    z-index: 2; /* Behind animals */
+    pointer-events: none; /* Don't block clicks */
+}
+
+/* Simple Plant Style 1 */
+.plant-1 { left: 15%; width: 8px; height: 40px; background-color: #5a9a4e; border-radius: 4px 4px 0 0; transform: rotate(-10deg); }
+.plant-1::before, .plant-1::after { content: ''; position: absolute; width: 6px; background-color: #6cb65f; border-radius: 3px 3px 0 0; bottom: 0; }
+.plant-1::before { left: -5px; transform: rotate(25deg); height: 35px; }
+.plant-1::after { right: -5px; transform: rotate(-25deg); height: 30px; }
+
+/* Simple Plant Style 2 */
+.plant-2 { left: 75%; width: 30px; height: 30px; }
+.plant-2::before { content: ''; position: absolute; width: 30px; height: 30px; background-color: #6abf5b; border-radius: 50% 50% 30% 30%; bottom: 0; }
+.plant-2::after { content: ''; position: absolute; width: 4px; height: 10px; background-color: #7a5c43; bottom: 0; left: 50%; transform: translateX(-50%); z-index: -1; }
+
+/* Simple Tree Style */
+.tree-1 { left: 45%; width: 15px; height: 50px; background-color: #8b4513; border-radius: 3px 3px 0 0; }
+.tree-1::before { content: ''; position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; background-color: #228b22; border-radius: 50%; }
+.tree-1::after { content: ''; position: absolute; bottom: 65px; left: 55%; width: 20px; height: 20px; background-color: #3cb371; border-radius: 50%; opacity: 0.7; }
+
+/* Simple Plant Style 3 */
+.plant-3 { left: 90%; width: 5px; height: 50px; background: #5a9a4e; border-radius: 3px; transform: rotate(8deg); }
+.plant-3::before { content:''; position: absolute; bottom: 15px; left: -5px; width: 20px; height: 4px; background: inherit; border-radius: 2px; transform: rotate(-40deg); }
+/* --- End Garden Decorations --- */
+
+
+/* Positioning for static interactive elements */
+.interactive-element {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    user-select: none;
+    position: absolute; /* Position relative to interactive-garden */
+    z-index: 6; /* Above animals and plants */
+}
+
+.interactive-element:hover {
+    transform: scale(1.15);
+}
+
+.secret-star {
+    font-size: 1.5rem;
+    bottom: 25px; /* Position higher up */
+    right: 15px;
+    color: #F7DC6F;
+}
+
+.music-note {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #E8DAEF;
+    padding: 5px;
+    bottom: 20px; /* Position higher up */
+    left: 15px;
+}
+
+
+/* Hidden Message Overlay */
+.hidden-message { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 248, 231, 0.95); padding: 30px 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); z-index: 100; text-align: center; color: #6E4C4C; }
+.hidden-message p { font-size: 1.2rem; margin-bottom: 20px; }
+.hidden-message button { padding: 8px 15px; background-color: #FADADD; border: none; border-radius: 5px; color: #6E4C4C; font-family: 'Quicksand', sans-serif; cursor: pointer; transition: background-color 0.2s ease; }
+.hidden-message button:hover { background-color: #f8c8d2; }
+
+
+/* Floating Elements Container Styling */
+.floating-elements { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; }
+/* Style for dynamically created hearts/sparkles */
+.floating-heart { position: absolute; bottom: -30px; font-size: 1.5rem; color: rgba(250, 218, 221, 0.5); animation: floatUp 15s infinite linear; user-select: none; pointer-events: none; will-change: transform, opacity; }
+/* floatUp animation */
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0.7; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+
+/* Footer Styling */
+.main-footer { margin-top: 40px; font-size: 0.8rem; color: rgba(93, 109, 126, 0.7); z-index: 2; position: relative; }
+
+/* Confetti Styles */
+.confetti { position: absolute; width: 8px; height: 8px; border-radius: 50%; pointer-events: none; z-index: 101 !important; /* Ensure above anniversary overlay */ opacity: 0; color: #FADADD; font-size: 10px; }
+
+
+/* --- Anniversary Styles --- */
+body.anniversary-active {
+    /* Optional: Slightly change background during anniversary */
+    /* background: linear-gradient(135deg, #ffe4e1, #e6f0fa); */
+}
+/* Subtle pulsing overlay effect */
+body.anniversary-active::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(255,223,186,0) 0%, rgba(247, 220, 111, 0.2) 60%, rgba(247, 220, 111, 0) 90%);
+    opacity: 0;
+    animation: pulseOverlay 8s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0; /* Behind most content */
+    animation-delay: 1s;
+}
+@keyframes pulseOverlay {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.03); }
+}
+/* Optional: Enhance floating hearts during anniversary */
+/* body.anniversary-active .floating-heart { opacity: 0.9; } */
+
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    .main-header h1 { font-size: 2rem; }
+    .timer-container { flex-direction: column; gap: 10px; padding: 15px; }
+    .timer-box { min-width: 0; width: 100%; padding: 10px; }
+    .timer-value { font-size: 2rem; }
+    .interactive-garden { width: 95%; padding: 15px 20px 20px 20px; min-height: auto; }
+    .animal { font-size: 2rem; margin-bottom: -5px; }
+    .bird { font-size: 1.5rem; }
+    .plant-3, .tree-1::after { display: none; } /* Hide some decorations */
+    .hidden-message { width: 85%; padding: 20px; }
+    .secret-star { font-size: 1.2rem; right: 10px; bottom: 15px;}
+    .music-note { font-size: 1.5rem; left: 10px; bottom: 12px;}
+}
+
+@media (max-width: 480px) {
+    .main-header h1 { font-size: 1.8rem; }
+    .timer-value { font-size: 1.8rem; }
+    .timer-label { font-size: 0.7rem; }
+    .animal { font-size: 1.8rem; }
+    .bird { font-size: 1.4rem; }
+     /* Hide more plants */
+     .plant-1 { display: none; }
+     .tree-1 { left: 70%;}
+     .plant-2 { left: 20%; }
+     .secret-star { bottom: 10px;}
+     .music-note { bottom: 8px;}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Time Together</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="floating-elements">
+        </div>
+
+    <div class="container">
+
+        <header class="main-header">
+            <h1>Our Journey So Far...</h1>
+        </header>
+
+        <section id="timer-section" class="timer-container" aria-live="polite">
+            <div class="timer-box"><span id="years" class="timer-value">0</span><span class="timer-label">Years</span></div>
+            <div class="timer-box"><span id="months" class="timer-value">0</span><span class="timer-label">Months</span></div>
+            <div class="timer-box"><span id="days" class="timer-value">0</span><span class="timer-label">Days</span></div>
+            <div class="timer-box"><span id="hours" class="timer-value">0</span><span class="timer-label">Hours</span></div>
+            <div class="timer-box"><span id="minutes" class="timer-value">0</span><span class="timer-label">Minutes</span></div>
+            <div class="timer-box"><span id="seconds" class="timer-value">0</span><span class="timer-label">Seconds</span></div>
+        </section>
+
+        <section class="interactive-garden">
+            <div class="plant plant-1"></div>
+            <div class="plant plant-2"></div>
+            <div class="tree tree-1"></div>
+            <div class="plant plant-3"></div>
+
+            <div id="bunny1" class="animal bunny" aria-label="Cute bunny" role="button" tabindex="0">🐰</div>
+            <div id="bunny2" class="animal bunny" aria-label="Another cute bunny" role="button" tabindex="0">🐇</div>
+            <div id="bird" class="animal bird" aria-label="Chirping bird" role="button" tabindex="0">🐦</div>
+            <div id="cat" class="animal cat" aria-label="Sleepy cat" role="button" tabindex="0">🐱</div>
+
+            <div id="secret-trigger" class="interactive-element secret-star" aria-label="Secret message trigger" role="button" tabindex="0">✨</div>
+            <button id="music-button" class="interactive-element music-note" aria-label="Play love song" role="button">🎵</button>
+        </section>
+
+        <div id="hidden-message-overlay" class="hidden-message" aria-hidden="true">
+            <p>You found my secret message: Every second with you is precious! ❤️</p>
+            <button id="close-message-button" aria-label="Close message">Close</button>
+        </div>
+
+    </div> <footer class="main-footer">
+        Made with Love
+    </footer>
+
+</body>
+</html>
