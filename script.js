@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- CONFIGURATION ---
-  const startDate = new Date("2024-05-04T17:11:30"); // Ensure this is correct
+  const startDate = new Date("2024-05-06T00:00:00"); // Ensure this is correct
   const NUM_FLOATING_HEARTS = 50; // Increased quantity
   const ANNIVERSARY_DURATION_MS = 3600000; // 1 hour
   const PERIODIC_BURST_INTERVAL_MS = 250; // 10 minutes
